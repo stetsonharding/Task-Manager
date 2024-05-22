@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from "react";
 
-import './App.css';
+import "./App.css";
+import InputFeild from "./components/InputFeild";
 
-function App() {
+const App: React.FC = () => {
+
+  //Define the state type in TypeScript
+  const [todo, setTodo] = useState<string>("");
+
   return (
     <div className="App">
-    <p>Hello World</p>
+      <span className="Heading">Taskify</span>
+      <InputFeild />
     </div>
   );
-}
+};
 
 export default App;
