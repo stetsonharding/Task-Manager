@@ -18,7 +18,7 @@
 
 
 .input__box:focus {
-   box-shadow: 0 0 10px 1000px black;
+   box-shadow: 0 0 10px 1000px #3e70a5;
    outline: none;
  
 }
