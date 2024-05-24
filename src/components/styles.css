@@ -13,14 +13,12 @@
     border: none;
     transition: 0.2s;
     box-shadow: inset 0 0 5px black;
- 
 }
 
 
 .input__box:focus {
    box-shadow: 0 0 10px 1000px #3e70a5;
    outline: none;
- 
 }
 
 .input__submit {
@@ -35,7 +33,6 @@
     color: white;
     box-shadow: 0 0 10px black;
     transition: 0.2s;
-   
 }
 
 .input__submit:hover{
@@ -45,4 +42,38 @@
 
 .input__submit:active{
     transform: scale(0.8);
+}
+
+
+
+
+/* Todos container */
+.todos{
+    width: 40%;
+    height: 80px;
+    border-radius: 10px;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+/* todo title  */
+.todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+  
+}
+/* todo action buttons */
+.todo__actionButtons{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 10px;
+}
+
+.editIcon, .deleteIcon, .completeIcon {
+    width: 25px;
+    cursor: pointer;
 }
