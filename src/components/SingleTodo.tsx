@@ -1,26 +1,33 @@
 import React from 'react'
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-interface Props {
-    todo: string;
+import "./styles.css"
+
+import { Todo } from './model';
+
+type Props = {
+    todo: Todo;
+    todos: Todo[];
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-export const SingleTodo: React.FC<Props> = ({todo}) => {
+ export const SingleTodo = ({todo, todos, setTodos}: Props) => {
   return (
-      <>
-    <div className="todo">{todo}</div>
-<div className="todo__actionButtons">
-  <div className="todo__edit">
-    <PencilIcon className="editIcon" />
+<form className="todos__single">
+  <span className="todos__single--text">{todo.todo}</span>
+  <div className="todo__actionButtons">
+    <div>
+      <PencilIcon className="action_btn" />
+      </div>
+      <div>
+      <TrashIcon className="action_btn"/>
+      </div>
+      <div>
+      <PlusIcon className="action_btn" />
+      </div>
   </div>
-  <div className="deleteIcon">
-    <TrashIcon />
-  </div>
-  <div className="completeIcon">
-    <PlusIcon />
-  </div>
-</div> 
-    
-    </>
+</form>
   )
 }
+
+

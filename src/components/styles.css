@@ -47,33 +47,65 @@
 
 
 
-/* Todos container */
+/* Container of all single Todos */
 .todos{
-    width: 40%;
-    height: 80px;
-    border-radius: 10px;
-    background-color: yellow;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+   gap:15px;
+}
+
+/* Single Todo */
+.todos__single{
+    width: 21.5%;
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
 }
-/* todo title  */
-.todo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-  
+.todos__single--text{
+    font-size: 20px;
+    border: none;
+    padding: 5px
 }
-/* todo action buttons */
+
+/* todo action buttons container */
 .todo__actionButtons{
-    display: flex;
     align-items: center;
     gap: 15px;
     padding-right: 10px;
+    display: flex;
 }
 
-.editIcon, .deleteIcon, .completeIcon {
+/* Single Action button */
+.action_btn {
     width: 25px;
     cursor: pointer;
 }
+
+@media(max-width: 700px) {
+.input {
+    width: 95%;
+}
+
+.todos{
+   width: 95%;
+}
+
+.todos__single{
+   width: 100%;
+}
+
+}
+
+
+@media(max-width: 1200px) {
+
+    
+    .todos__single{
+       width: 40%;
+    }
+    
+    }
