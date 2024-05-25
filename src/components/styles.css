@@ -13,14 +13,12 @@
     border: none;
     transition: 0.2s;
     box-shadow: inset 0 0 5px black;
- 
 }
 
 
 .input__box:focus {
    box-shadow: 0 0 10px 1000px #3e70a5;
    outline: none;
- 
 }
 
 .input__submit {
@@ -35,7 +33,6 @@
     color: white;
     box-shadow: 0 0 10px black;
     transition: 0.2s;
-   
 }
 
 .input__submit:hover{
@@ -46,3 +43,69 @@
 .input__submit:active{
     transform: scale(0.8);
 }
+
+
+
+
+/* Container of all single Todos */
+.todos{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+   gap:15px;
+}
+
+/* Single Todo */
+.todos__single{
+    width: 21.5%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+}
+.todos__single--text{
+    font-size: 20px;
+    border: none;
+    padding: 5px
+}
+
+/* todo action buttons container */
+.todo__actionButtons{
+    align-items: center;
+    gap: 15px;
+    padding-right: 10px;
+    display: flex;
+}
+
+/* Single Action button */
+.action_btn {
+    width: 25px;
+    cursor: pointer;
+}
+
+@media(max-width: 700px) {
+.input {
+    width: 95%;
+}
+
+.todos{
+   width: 95%;
+}
+
+.todos__single{
+   width: 100%;
+}
+
+}
+
+
+@media(max-width: 1200px) {
+
+    
+    .todos__single{
+       width: 40%;
+    }
+    
+    }
