@@ -71,6 +71,14 @@
     padding: 5px
 }
 
+/* Completed Todo strike through */
+.todos__single--text--completed{
+  text-decoration: line-through;
+    font-size: 20px;
+    border: none;
+    padding: 5px
+}
+
 /* todo action buttons container */
 .todo__actionButtons{
     align-items: center;
