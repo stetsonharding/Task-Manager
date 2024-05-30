@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./App.css";
 import InputFeild from "./components/InputFeild";
 import { Todo } from "./components/model";
-import { TodoList } from "./components/TodoList";
+
+import TodoList from "./components/TodoList";
 
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -11,8 +12,9 @@ import { DragDropContext } from "react-beautiful-dnd";
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [completedTodo, setCompletedTodo] = useState<Todo[]>([])
+  const [completedTodos, setCompletedTodos] = useState<Todo[]>([])
 
+  
   
 
   const handleAddTodo = (e: React.FormEvent) => {
@@ -33,7 +35,7 @@ const App: React.FC = () => {
     <div className="App">
       <span className="Heading">Taskify</span>
       <InputFeild todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
-      <TodoList todos={todos} setTodos={setTodos} completedTodo={completedTodo} setCompletedTodo={setCompletedTodo}/>
+      <TodoList todos={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos}/>
     </div>
     </DragDropContext>
   );
