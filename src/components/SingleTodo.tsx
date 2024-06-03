@@ -4,29 +4,34 @@ import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import "./styles.css";
 
 import { Todo } from "./model";
-import { Draggable } from "react-beautiful-dnd";
+
 
 type Props = {
   todo: Todo;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  index: number;
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+
 };
 
-export const SingleTodo = ({ todo, todos, setTodos, index }: Props) => {
+export const SingleTodo = ({ todo, todos, setTodos, setCompletedTodos }: Props) => {
   const [isTaskEdited, setIsTaskEdited] = useState<boolean>(false);
   const [editedTaskValue, setEditedTaskValue] = useState<string>(todo.todo);
 
   const editRef = useRef<HTMLInputElement>(null);
 
   //Complete todo
-  const handleCompleteTodo = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((item) =>
-        item.id === id ? { ...item, isDone: !item.isDone } : item
-      )
-    );
+  const handleCompleteTodo = (id: number, todo: Todo) => {
+
+    let updated = todos.filter(item => item.id !== id)
+  setTodos(updated)
+
+   setCompletedTodos(prevCompleted => [...prevCompleted, todo])
+   
   };
+
+
+
 
   //Remove Todo
   const handleDelete = (id: number) => {
@@ -50,14 +55,11 @@ export const SingleTodo = ({ todo, todos, setTodos, index }: Props) => {
   }, [handleEdit]);
 
   return (
-    <Draggable draggableId={todo.id.toString()} index={index}>
-      {(provided) => (
+   
         <form
           className="todos__single"
           onSubmit={(e) => handleEdit(todo.id, e)}
-          {...provided.draggableProps }
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
+    
         >
           {isTaskEdited ? (
             <input
@@ -94,12 +96,11 @@ export const SingleTodo = ({ todo, todos, setTodos, index }: Props) => {
             <div>
               <PlusIcon
                 className="action_btn"
-                onClick={() => handleCompleteTodo(todo.id)}
+                onClick={() => handleCompleteTodo(todo.id, todo)}
               />
             </div>
           </div>
         </form>
-      )}
-    </Draggable>
+    
   );
 };
